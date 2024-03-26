@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,26 @@ namespace SuperMarket
         {
             InitializeComponent();
         }
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\shrey\OneDrive\Documents\SuperMarketDB.mdf;Integrated Security=True;Connect Timeout=30");
 
+        private void populate()
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Tbl";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            Seller_dataGridView.DataSource = dt;
+            conn.Close();
+
+        }
+        private void SellerForm_Load(object sender, EventArgs e)
+        {
+            populate();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -39,6 +59,101 @@ namespace SuperMarket
         private void Selling_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Seller_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SellerId_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            SellerName_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            SellerAge_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            SellerPhone_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            SellerPass_txtBox.Text= Seller_dataGridView.SelectedRows[0].Cells[4].Value.ToString();
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SellerId_txtBox.Text == "")
+                {
+                    MessageBox.Show("Select The Product to Delete");
+                }
+                else
+                {
+                    conn.Open();
+                    string query = "delete from Tbl where SellerId=" + SellerId_txtBox.Text + "";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Seller Deleted Successfully");
+                    conn.Close();
+                    populate();
+                    SellerId_txtBox.Text = "";
+                    SellerName_txtBox.Text = "";
+                    SellerAge_txtBox.Text = "";
+                    SellerPhone_txtBox.Text = "";
+                    SellerPass_txtBox.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Add_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                string query = "insert into Tbl values(" + int.Parse(SellerId_txtBox.Text) + ",'" + SellerName_txtBox.Text + "','" + SellerAge_txtBox.Text + "','" + SellerPhone_txtBox.Text + "," + "','" + SellerPass_txtBox.Text + "," + "')";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Seller Added SuccesFully");
+                conn.Close();
+                populate();
+                SellerId_txtBox.Text = "";
+                SellerName_txtBox.Text = "";
+                SellerAge_txtBox.Text = "";
+                SellerPhone_txtBox.Text = "";
+                SellerPass_txtBox.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SellerId_txtBox.Text == "" || SellerName_txtBox.Text == "" || SellerAge_txtBox.Text == "" ||SellerPhone_txtBox.Text == "" || SellerPass_txtBox.Text == "")
+                {
+                    MessageBox.Show("Missing Information");
+                }
+                else
+                {
+                    conn.Open();
+                    string query = "Update from Tbl set SellerName='" + SellerName_txtBox.Text + "',SellerAge='" + SellerAge_txtBox.Text + "',SellerPhone='" + SellerPhone_txtBox.Text + "',SellerPass='" + SellerPass_txtBox.Text+ "'where CatId=" + SellerId_txtBox.Text + ";";
+                    SqlCommand sqlCommand = new SqlCommand(query, conn);
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Seller Successfully Updated");
+                    conn.Close();
+                    populate();
+                    SellerId_txtBox.Text = "";
+                    SellerName_txtBox.Text = "";
+                    SellerAge_txtBox.Text = "";
+                    SellerPhone_txtBox.Text = "";
+                    SellerPass_txtBox.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

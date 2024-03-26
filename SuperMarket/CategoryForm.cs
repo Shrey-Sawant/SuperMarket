@@ -35,7 +35,10 @@ namespace SuperMarket
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added SuccesFully");
                 conn.Close();
-
+                populate();
+                CatId_txtbx.Text = "";
+                CatName_txtbx.Text = "";
+                CatDesc_txtbx.Text = "";
             }
             catch (Exception ex)
             {
@@ -85,6 +88,29 @@ namespace SuperMarket
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
+            try {
+                if (CatId_txtbx.Text == "" || CatName_txtbx.Text == "" || CatDesc_txtbx.Text == "")
+                {
+                    MessageBox.Show("Missing Information");
+                }
+                else
+                {
+                    conn.Open();
+                    string query = "Update from CategoryTbl set CatName='" + CatName_txtbx.Text + "',CatDesc='" + CatDesc_txtbx.Text + "'where CatId=" + CatId_txtbx.Text + ";";
+                    SqlCommand sqlCommand = new SqlCommand(query, conn);
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Category Successfully Updated");
+                    conn.Close();
+                    populate();
+                    CatId_txtbx.Text = "";
+                    CatName_txtbx.Text = "";
+                    CatDesc_txtbx.Text = "";
+
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -104,6 +130,10 @@ namespace SuperMarket
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Category Deleted Successfully");
                     conn.Close();
+                    populate();
+                    CatId_txtbx.Text = "";
+                    CatName_txtbx.Text = "";
+                    CatDesc_txtbx.Text = "";
                 }
             }
             catch(Exception ex) {

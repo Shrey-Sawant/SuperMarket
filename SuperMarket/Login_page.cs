@@ -19,9 +19,46 @@ namespace SuperMarket
 
         private void Login_button_Click(object sender, EventArgs e)
         {
+            if (user_textBox.Text == "" || password_txtbox.Text == "")
+            {
+                MessageBox.Show("Enter Username and Password");
+            }
+            else
+            {
+                if (RoleCb.SelectedIndex > -1)
+                {
+                    if (RoleCb.SelectedItem.ToString() == "ADMIN")
+                    {
+                        if (user_textBox.Text == "Admin" && password_txtbox.Text == "Admin")
+                        {
+                            ProductForm prod = new ProductForm();
+                            prod.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter Correct User Name and password");
+                        }
+                        else
+                        {
+                            MessageBox.Show("You are In Seller Section");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select A Role");
+                }
+            }
             ProductForm productForm = new ProductForm();
             productForm.Show();
             this.Hide();
+        }
+
+        private void clear_button_Click(object sender, EventArgs e)
+        {
+            user_textBox.Clear();
+            password_txtbox.Clear();
         }
     }
 }

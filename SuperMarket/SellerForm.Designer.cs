@@ -35,7 +35,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SellerPass_txtBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Seller_dataGridView = new System.Windows.Forms.DataGridView();
             this.Delete_button = new System.Windows.Forms.Button();
             this.Edit_button = new System.Windows.Forms.Button();
             this.Add_button = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Seller_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +71,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.SellerPass_txtBox);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.Seller_dataGridView);
             this.panel1.Controls.Add(this.Delete_button);
             this.panel1.Controls.Add(this.Edit_button);
             this.panel1.Controls.Add(this.Add_button);
@@ -152,17 +152,18 @@
             this.SellerPass_txtBox.Size = new System.Drawing.Size(268, 23);
             this.SellerPass_txtBox.TabIndex = 19;
             // 
-            // dataGridView1
+            // Seller_dataGridView
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(495, 157);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(765, 541);
-            this.dataGridView1.TabIndex = 16;
+            this.Seller_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Seller_dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Seller_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Seller_dataGridView.Location = new System.Drawing.Point(495, 157);
+            this.Seller_dataGridView.Name = "Seller_dataGridView";
+            this.Seller_dataGridView.RowHeadersWidth = 51;
+            this.Seller_dataGridView.RowTemplate.Height = 24;
+            this.Seller_dataGridView.Size = new System.Drawing.Size(765, 541);
+            this.Seller_dataGridView.TabIndex = 16;
+            this.Seller_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Seller_dataGridView_CellContentClick);
             // 
             // Delete_button
             // 
@@ -175,6 +176,7 @@
             this.Delete_button.TabIndex = 15;
             this.Delete_button.Text = "DELETE";
             this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // Edit_button
             // 
@@ -187,6 +189,7 @@
             this.Edit_button.TabIndex = 14;
             this.Edit_button.Text = "EDIT";
             this.Edit_button.UseVisualStyleBackColor = false;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
             // 
             // Add_button
             // 
@@ -199,6 +202,7 @@
             this.Add_button.TabIndex = 13;
             this.Add_button.Text = "ADD";
             this.Add_button.UseVisualStyleBackColor = false;
+            this.Add_button.Click += new System.EventHandler(this.Add_button_Click);
             // 
             // SellerPass_label
             // 
@@ -381,6 +385,7 @@
             this.Name = "SellerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SellerForm";
+            this.Load += new System.EventHandler(this.SellerForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -388,7 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Seller_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,7 +401,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Seller_dataGridView;
         private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.Button Edit_button;
         private System.Windows.Forms.Button Add_button;

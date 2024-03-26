@@ -38,7 +38,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.clear_button = new System.Windows.Forms.Button();
             this.Login_button = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.RoleCb = new System.Windows.Forms.ComboBox();
             this.LOGIN_Label = new System.Windows.Forms.Label();
             this.password_label = new System.Windows.Forms.Label();
             this.password_txtbox = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox3);
             this.splitContainer1.Panel2.Controls.Add(this.clear_button);
             this.splitContainer1.Panel2.Controls.Add(this.Login_button);
-            this.splitContainer1.Panel2.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.RoleCb);
             this.splitContainer1.Panel2.Controls.Add(this.LOGIN_Label);
             this.splitContainer1.Panel2.Controls.Add(this.password_label);
             this.splitContainer1.Panel2.Controls.Add(this.password_txtbox);
@@ -170,6 +170,7 @@
             this.clear_button.TabIndex = 8;
             this.clear_button.Text = "CLEAR";
             this.clear_button.UseVisualStyleBackColor = true;
+            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // Login_button
             // 
@@ -185,19 +186,19 @@
             this.Login_button.UseVisualStyleBackColor = true;
             this.Login_button.Click += new System.EventHandler(this.Login_button_Click);
             // 
-            // comboBox1
+            // RoleCb
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.RoleCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleCb.ForeColor = System.Drawing.Color.DarkOrange;
+            this.RoleCb.FormattingEnabled = true;
+            this.RoleCb.Items.AddRange(new object[] {
             "ADMIN",
             "SELLER"});
-            this.comboBox1.Location = new System.Drawing.Point(285, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 28);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "Select Roll";
+            this.RoleCb.Location = new System.Drawing.Point(285, 170);
+            this.RoleCb.Name = "RoleCb";
+            this.RoleCb.Size = new System.Drawing.Size(175, 28);
+            this.RoleCb.TabIndex = 6;
+            this.RoleCb.Text = "Select Roll";
             // 
             // LOGIN_Label
             // 
@@ -285,7 +286,7 @@
         private System.Windows.Forms.TextBox password_txtbox;
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.Label LOGIN_Label;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox RoleCb;
         private System.Windows.Forms.Button Login_button;
         private System.Windows.Forms.Button clear_button;
         private System.Windows.Forms.Label Title;
