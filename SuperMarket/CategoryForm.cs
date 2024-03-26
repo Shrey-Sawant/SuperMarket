@@ -17,7 +17,7 @@ namespace SuperMarket
             InitializeComponent();
         }
 
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\shrey\OneDrive\Documents\SuperMarketDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\shrey\OneDrive\Documents\SuperMarketDB.mdf;Integrated Security=True;Connect Timeout=30");
 
         
         private void button1_Click(object sender, EventArgs e)
@@ -30,29 +30,33 @@ namespace SuperMarket
             try
             {
                 conn.Open();
-                string query = "insert into CategoryTbl values("+CatId_txtbx.Text+","+CatName_txtbx.Text + "," + CatDesc_txtbx.Text + ","+")";
+                string query = "insert into CategoryTbl values(" + int.Parse(CatId_txtbx.Text) + ",'" + CatName_txtbx.Text + "','" + CatDesc_txtbx.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Category Added SuccesFully");
                 conn.Close();
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void populate()
-        {
-            conn.Open();
-            string query = "select * from CategoryTbl";
-            SqlDataAdapter adapter = new SqlDataAdapter(query,conn);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);  
-            var ds = new DataSet();
-                adapter.Fill(ds);
-            Cat_dataGridView.DataSource = ds.Tables[0];
-            conn.Close();
-        }
+         private void populate()
+         {
+              conn.Open();
+             SqlCommand cmd = conn.CreateCommand();
+             cmd.CommandType = CommandType.Text;
+             cmd.CommandText = "select * from CategoryTbl";
+             cmd.ExecuteNonQuery();
+             DataTable dt = new DataTable();
+             SqlDataAdapter da=new  SqlDataAdapter(cmd);
+             da.Fill(dt);
+            Cat_dataGridView.DataSource = dt;
+             conn.Close();
+
+         }
         private void CategoryForm_Load(object sender, EventArgs e)
         {
             populate();

@@ -35,5 +35,10 @@ namespace SuperMarket
             product.Show();
             this.Hide();
         }
+
+        private void Selling_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

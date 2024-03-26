@@ -79,7 +79,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SuperMarket.Properties.Resources.White_background;
-            this.pictureBox3.Location = new System.Drawing.Point(183, 315);
+            this.pictureBox3.Location = new System.Drawing.Point(183, 320);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(270, 7);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +89,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SuperMarket.Properties.Resources.White_background;
-            this.pictureBox2.Location = new System.Drawing.Point(183, 243);
+            this.pictureBox2.Location = new System.Drawing.Point(185, 249);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(270, 7);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -99,7 +99,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SuperMarket.Properties.Resources.White_background;
-            this.pictureBox1.Location = new System.Drawing.Point(183, 180);
+            this.pictureBox1.Location = new System.Drawing.Point(183, 186);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(270, 7);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,6 +108,7 @@
             // 
             // Cat_dataGridView
             // 
+            this.Cat_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Cat_dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Cat_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Cat_dataGridView.Location = new System.Drawing.Point(492, 139);
@@ -202,6 +203,7 @@
             this.CatId_txtbx.BackColor = System.Drawing.Color.DarkOrange;
             this.CatId_txtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CatId_txtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CatId_txtbx.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CatId_txtbx.Location = new System.Drawing.Point(185, 157);
             this.CatId_txtbx.Name = "CatId_txtbx";
             this.CatId_txtbx.Size = new System.Drawing.Size(268, 23);

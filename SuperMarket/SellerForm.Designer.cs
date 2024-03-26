@@ -154,6 +154,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(495, 157);
@@ -330,12 +331,13 @@
             this.Selling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Selling.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Selling.ForeColor = System.Drawing.Color.Coral;
-            this.Selling.Location = new System.Drawing.Point(12, 322);
+            this.Selling.Location = new System.Drawing.Point(-3, 317);
             this.Selling.Name = "Selling";
             this.Selling.Size = new System.Drawing.Size(113, 38);
             this.Selling.TabIndex = 7;
             this.Selling.Text = "Selling";
             this.Selling.UseVisualStyleBackColor = true;
+            this.Selling.Click += new System.EventHandler(this.Selling_Click);
             // 
             // category_button
             // 
@@ -343,9 +345,9 @@
             this.category_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.category_button.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.category_button.ForeColor = System.Drawing.Color.Coral;
-            this.category_button.Location = new System.Drawing.Point(5, 228);
+            this.category_button.Location = new System.Drawing.Point(-3, 230);
             this.category_button.Name = "category_button";
-            this.category_button.Size = new System.Drawing.Size(120, 38);
+            this.category_button.Size = new System.Drawing.Size(129, 38);
             this.category_button.TabIndex = 6;
             this.category_button.Text = "category";
             this.category_button.UseVisualStyleBackColor = true;
@@ -357,11 +359,11 @@
             this.seller_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seller_button.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seller_button.ForeColor = System.Drawing.Color.Coral;
-            this.seller_button.Location = new System.Drawing.Point(12, 142);
+            this.seller_button.Location = new System.Drawing.Point(-3, 146);
             this.seller_button.Name = "seller_button";
-            this.seller_button.Size = new System.Drawing.Size(113, 38);
+            this.seller_button.Size = new System.Drawing.Size(128, 38);
             this.seller_button.TabIndex = 5;
-            this.seller_button.Text = "products";
+            this.seller_button.Text = "product";
             this.seller_button.UseVisualStyleBackColor = true;
             this.seller_button.Click += new System.EventHandler(this.seller_button_Click);
             // 
