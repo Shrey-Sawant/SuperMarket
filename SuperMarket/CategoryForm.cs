@@ -75,5 +75,41 @@ namespace SuperMarket
             seller.Show();
             this.Hide();
         }
+
+        private void Cat_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CatId_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            CatName_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            CatDesc_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+        }
+
+        private void Edit_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CatId_txtbx.Text=="")
+                {
+                    MessageBox.Show("Select The Category to Delete");
+                }
+                else
+                {
+                    conn.Open();
+                    string query = "delete from CategoryTbl where CatId=" + CatId_txtbx.Text + "";
+                    SqlCommand cmd=new SqlCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Deleted Successfully");
+                    conn.Close();
+                }
+            }
+            catch(Exception ex) {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

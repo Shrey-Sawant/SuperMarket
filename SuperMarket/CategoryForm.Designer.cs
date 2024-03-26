@@ -71,6 +71,7 @@
             this.panel1.Controls.Add(this.CatId_txtbx);
             this.panel1.Controls.Add(this.CatId_label);
             this.panel1.Controls.Add(this.Cat_Title);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(134, 50);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1283, 729);
@@ -117,6 +118,7 @@
             this.Cat_dataGridView.RowTemplate.Height = 24;
             this.Cat_dataGridView.Size = new System.Drawing.Size(773, 562);
             this.Cat_dataGridView.TabIndex = 16;
+            this.Cat_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Cat_dataGridView_CellContentClick);
             // 
             // Delete_button
             // 
@@ -129,6 +131,7 @@
             this.Delete_button.TabIndex = 15;
             this.Delete_button.Text = "DELETE";
             this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // Edit_button
             // 
@@ -141,6 +144,7 @@
             this.Edit_button.TabIndex = 14;
             this.Edit_button.Text = "EDIT";
             this.Edit_button.UseVisualStyleBackColor = false;
+            this.Edit_button.Click += new System.EventHandler(this.Edit_button_Click);
             // 
             // Add_button
             // 
@@ -170,7 +174,7 @@
             // 
             this.CatDesc_txtbx.BackColor = System.Drawing.Color.DarkOrange;
             this.CatDesc_txtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CatDesc_txtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CatDesc_txtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CatDesc_txtbx.Location = new System.Drawing.Point(187, 292);
             this.CatDesc_txtbx.Multiline = true;
             this.CatDesc_txtbx.Name = "CatDesc_txtbx";
@@ -202,7 +206,7 @@
             // 
             this.CatId_txtbx.BackColor = System.Drawing.Color.DarkOrange;
             this.CatId_txtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CatId_txtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CatId_txtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CatId_txtbx.ForeColor = System.Drawing.SystemColors.WindowText;
             this.CatId_txtbx.Location = new System.Drawing.Point(185, 157);
             this.CatId_txtbx.Name = "CatId_txtbx";
