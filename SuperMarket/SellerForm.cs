@@ -21,6 +21,7 @@ namespace SuperMarket
 
         private void populate()
         {
+            conn.Close();
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -61,14 +62,6 @@ namespace SuperMarket
 
         }
 
-        private void Seller_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            SellerId_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            SellerName_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-            SellerAge_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
-            SellerPhone_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[3].Value.ToString();
-            SellerPass_txtBox.Text= Seller_dataGridView.SelectedRows[0].Cells[4].Value.ToString();
-        }
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
@@ -80,6 +73,7 @@ namespace SuperMarket
                 }
                 else
                 {
+                    conn.Close();
                     conn.Open();
                     string query = "delete from Tbl where SellerId=" + SellerId_txtBox.Text + "";
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -105,8 +99,9 @@ namespace SuperMarket
         {
             try
             {
+                conn.Close();
                 conn.Open();
-                string query = "insert into Tbl values(" + int.Parse(SellerId_txtBox.Text) + ",'" + SellerName_txtBox.Text + "','" + SellerAge_txtBox.Text + "','" + SellerPhone_txtBox.Text + "," + "','" + SellerPass_txtBox.Text + "," + "')";
+                string query = "insert into Tbl values(" + int.Parse(SellerId_txtBox.Text) + ",'" + SellerName_txtBox.Text + "','" + SellerAge_txtBox.Text + "','" + int.Parse(SellerPhone_txtBox.Text )+ "','" + SellerPass_txtBox.Text + "," + "')";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Seller Added SuccesFully");
@@ -135,8 +130,9 @@ namespace SuperMarket
                 }
                 else
                 {
+                    conn.Close();
                     conn.Open();
-                    string query = "Update from Tbl set SellerName='" + SellerName_txtBox.Text + "',SellerAge='" + SellerAge_txtBox.Text + "',SellerPhone='" + SellerPhone_txtBox.Text + "',SellerPass='" + SellerPass_txtBox.Text+ "'where CatId=" + SellerId_txtBox.Text + ";";
+                    string query = "Update Tbl set SellerName='" + SellerName_txtBox.Text + "',SellerAge='" + SellerAge_txtBox.Text + "',SellerPhone='" + SellerPhone_txtBox.Text + "',SellerPass='" + SellerPass_txtBox.Text+ "'where SellerId="+SellerId_txtBox.Text+";";
                     SqlCommand sqlCommand = new SqlCommand(query, conn);
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Seller Successfully Updated");
@@ -154,6 +150,33 @@ namespace SuperMarket
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login_page login = new Login_page();
+            login.Show();
+        }
+
+        private void Seller_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            SellerId_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            SellerName_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            SellerAge_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            SellerPhone_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            SellerPass_txtBox.Text = Seller_dataGridView.SelectedRows[0].Cells[4].Value.ToString();
+        }
+
+        private void Seller_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -50,9 +50,10 @@
             this.SellerId_label = new System.Windows.Forms.Label();
             this.Seller_Title = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.Selling = new System.Windows.Forms.Button();
             this.category_button = new System.Windows.Forms.Button();
             this.seller_button = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -145,7 +146,7 @@
             this.SellerPass_txtBox.BackColor = System.Drawing.Color.DarkOrange;
             this.SellerPass_txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SellerPass_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerPass_txtBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SellerPass_txtBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SellerPass_txtBox.Location = new System.Drawing.Point(187, 433);
             this.SellerPass_txtBox.Name = "SellerPass_txtBox";
             this.SellerPass_txtBox.PasswordChar = '*';
@@ -163,6 +164,7 @@
             this.Seller_dataGridView.RowTemplate.Height = 24;
             this.Seller_dataGridView.Size = new System.Drawing.Size(765, 541);
             this.Seller_dataGridView.TabIndex = 16;
+            this.Seller_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Seller_dataGridView_CellClick);
             this.Seller_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Seller_dataGridView_CellContentClick);
             // 
             // Delete_button
@@ -231,7 +233,7 @@
             this.SellerPhone_txtBox.BackColor = System.Drawing.Color.DarkOrange;
             this.SellerPhone_txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SellerPhone_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerPhone_txtBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SellerPhone_txtBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SellerPhone_txtBox.Location = new System.Drawing.Point(187, 368);
             this.SellerPhone_txtBox.Name = "SellerPhone_txtBox";
             this.SellerPhone_txtBox.Size = new System.Drawing.Size(268, 23);
@@ -253,7 +255,7 @@
             this.SellerAge_txtBox.BackColor = System.Drawing.Color.DarkOrange;
             this.SellerAge_txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SellerAge_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerAge_txtBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SellerAge_txtBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SellerAge_txtBox.Location = new System.Drawing.Point(187, 292);
             this.SellerAge_txtBox.Name = "SellerAge_txtBox";
             this.SellerAge_txtBox.Size = new System.Drawing.Size(268, 23);
@@ -264,7 +266,7 @@
             this.SellerName_txtBox.BackColor = System.Drawing.Color.DarkOrange;
             this.SellerName_txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SellerName_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerName_txtBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SellerName_txtBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SellerName_txtBox.Location = new System.Drawing.Point(187, 220);
             this.SellerName_txtBox.Name = "SellerName_txtBox";
             this.SellerName_txtBox.Size = new System.Drawing.Size(268, 23);
@@ -286,7 +288,7 @@
             this.SellerId_txtBox.BackColor = System.Drawing.Color.DarkOrange;
             this.SellerId_txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SellerId_txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellerId_txtBox.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.SellerId_txtBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SellerId_txtBox.Location = new System.Drawing.Point(185, 157);
             this.SellerId_txtBox.Name = "SellerId_txtBox";
             this.SellerId_txtBox.Size = new System.Drawing.Size(268, 23);
@@ -329,20 +331,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Selling
-            // 
-            this.Selling.FlatAppearance.BorderSize = 0;
-            this.Selling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Selling.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Selling.ForeColor = System.Drawing.Color.Coral;
-            this.Selling.Location = new System.Drawing.Point(-3, 317);
-            this.Selling.Name = "Selling";
-            this.Selling.Size = new System.Drawing.Size(113, 38);
-            this.Selling.TabIndex = 7;
-            this.Selling.Text = "Selling";
-            this.Selling.UseVisualStyleBackColor = true;
-            this.Selling.Click += new System.EventHandler(this.Selling_Click);
-            // 
             // category_button
             // 
             this.category_button.FlatAppearance.BorderSize = 0;
@@ -371,12 +359,40 @@
             this.seller_button.UseVisualStyleBackColor = true;
             this.seller_button.Click += new System.EventHandler(this.seller_button_Click);
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Coral;
+            this.button2.Location = new System.Drawing.Point(1327, -8);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 34);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "_";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label2.Location = new System.Drawing.Point(12, 726);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 22);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "LOGOUT";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // SellerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1429, 791);
-            this.Controls.Add(this.Selling);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.category_button);
             this.Controls.Add(this.seller_button);
             this.Controls.Add(this.button1);
@@ -395,6 +411,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seller_dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -422,8 +439,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button Selling;
         private System.Windows.Forms.Button category_button;
         private System.Windows.Forms.Button seller_button;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
     }
 }

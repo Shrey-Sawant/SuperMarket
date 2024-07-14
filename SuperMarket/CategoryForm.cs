@@ -29,6 +29,7 @@ namespace SuperMarket
         {
             try
             {
+                conn.Close();
                 conn.Open();
                 string query = "insert into CategoryTbl values(" + int.Parse(CatId_txtbx.Text) + ",'" + CatName_txtbx.Text + "','" + CatDesc_txtbx.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -39,6 +40,7 @@ namespace SuperMarket
                 CatId_txtbx.Text = "";
                 CatName_txtbx.Text = "";
                 CatDesc_txtbx.Text = "";
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -48,7 +50,8 @@ namespace SuperMarket
 
          private void populate()
          {
-              conn.Open();
+            conn.Close();
+            conn.Open();
              SqlCommand cmd = conn.CreateCommand();
              cmd.CommandType = CommandType.Text;
              cmd.CommandText = "select * from CategoryTbl";
@@ -79,12 +82,7 @@ namespace SuperMarket
             this.Hide();
         }
 
-        private void Cat_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            CatId_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            CatName_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-            CatDesc_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
-        }
+    
 
         private void Edit_button_Click(object sender, EventArgs e)
         {
@@ -95,8 +93,9 @@ namespace SuperMarket
                 }
                 else
                 {
+                    conn.Close();
                     conn.Open();
-                    string query = "Update from CategoryTbl set CatName='" + CatName_txtbx.Text + "',CatDesc='" + CatDesc_txtbx.Text + "'where CatId=" + CatId_txtbx.Text + ";";
+                    string query = "Update CategoryTbl set CatName='" + CatName_txtbx.Text + "',CatDesc='" + CatDesc_txtbx.Text + "'where CatId=" + CatId_txtbx.Text + ";";
                     SqlCommand sqlCommand = new SqlCommand(query, conn);
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Category Successfully Updated");
@@ -105,7 +104,7 @@ namespace SuperMarket
                     CatId_txtbx.Text = "";
                     CatName_txtbx.Text = "";
                     CatDesc_txtbx.Text = "";
-
+                    conn.Close();
                 }
             }catch(Exception ex)
             {
@@ -124,6 +123,7 @@ namespace SuperMarket
                 }
                 else
                 {
+                    conn.Close();
                     conn.Open();
                     string query = "delete from CategoryTbl where CatId=" + CatId_txtbx.Text + "";
                     SqlCommand cmd=new SqlCommand(query, conn);
@@ -134,12 +134,37 @@ namespace SuperMarket
                     CatId_txtbx.Text = "";
                     CatName_txtbx.Text = "";
                     CatDesc_txtbx.Text = "";
+                    conn.Close();
                 }
             }
             catch(Exception ex) {
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login_page login = new Login_page();
+            login.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Cat_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CatId_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            CatName_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            CatDesc_txtbx.Text = Cat_dataGridView.SelectedRows[0].Cells[2].Value.ToString();
+        }
+
+        private void Cat_dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

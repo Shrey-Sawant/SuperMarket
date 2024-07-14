@@ -44,9 +44,10 @@
             this.CatId_label = new System.Windows.Forms.Label();
             this.Cat_Title = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.Selling_button = new System.Windows.Forms.Button();
             this.products_button = new System.Windows.Forms.Button();
             this.seller_button = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,6 +119,7 @@
             this.Cat_dataGridView.RowTemplate.Height = 24;
             this.Cat_dataGridView.Size = new System.Drawing.Size(773, 562);
             this.Cat_dataGridView.TabIndex = 16;
+            this.Cat_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Cat_dataGridView_CellClick);
             this.Cat_dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Cat_dataGridView_CellContentClick);
             // 
             // Delete_button
@@ -250,26 +252,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Selling_button
-            // 
-            this.Selling_button.FlatAppearance.BorderSize = 0;
-            this.Selling_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Selling_button.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Selling_button.ForeColor = System.Drawing.Color.Coral;
-            this.Selling_button.Location = new System.Drawing.Point(15, 323);
-            this.Selling_button.Name = "Selling_button";
-            this.Selling_button.Size = new System.Drawing.Size(113, 38);
-            this.Selling_button.TabIndex = 7;
-            this.Selling_button.Text = "Selling";
-            this.Selling_button.UseVisualStyleBackColor = true;
-            // 
             // products_button
             // 
             this.products_button.FlatAppearance.BorderSize = 0;
             this.products_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.products_button.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.products_button.ForeColor = System.Drawing.Color.Coral;
-            this.products_button.Location = new System.Drawing.Point(8, 229);
+            this.products_button.Location = new System.Drawing.Point(-7, 225);
             this.products_button.Name = "products_button";
             this.products_button.Size = new System.Drawing.Size(120, 38);
             this.products_button.TabIndex = 6;
@@ -283,7 +272,7 @@
             this.seller_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seller_button.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seller_button.ForeColor = System.Drawing.Color.Coral;
-            this.seller_button.Location = new System.Drawing.Point(15, 138);
+            this.seller_button.Location = new System.Drawing.Point(0, 134);
             this.seller_button.Name = "seller_button";
             this.seller_button.Size = new System.Drawing.Size(113, 38);
             this.seller_button.TabIndex = 5;
@@ -291,12 +280,40 @@
             this.seller_button.UseVisualStyleBackColor = true;
             this.seller_button.Click += new System.EventHandler(this.seller_button_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label2.Location = new System.Drawing.Point(12, 742);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 22);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "LOGOUT";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Coral;
+            this.button2.Location = new System.Drawing.Point(1333, -10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 34);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "_";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1429, 791);
-            this.Controls.Add(this.Selling_button);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.products_button);
             this.Controls.Add(this.seller_button);
             this.Controls.Add(this.button1);
@@ -313,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cat_dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -334,8 +352,9 @@
         private System.Windows.Forms.Label CatId_label;
         private System.Windows.Forms.Label Cat_Title;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button Selling_button;
         private System.Windows.Forms.Button products_button;
         private System.Windows.Forms.Button seller_button;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

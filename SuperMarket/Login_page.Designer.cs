@@ -34,6 +34,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.clear_button = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +73,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel2.Controls.Add(this.pictureBox5);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox4);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox3);
             this.splitContainer1.Panel2.Controls.Add(this.clear_button);
@@ -81,6 +84,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.password_txtbox);
             this.splitContainer1.Panel2.Controls.Add(this.user_label);
             this.splitContainer1.Panel2.Controls.Add(this.user_textBox);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(972, 559);
             this.splitContainer1.SplitterDistance = 377;
             this.splitContainer1.TabIndex = 0;
@@ -138,6 +142,17 @@
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::SuperMarket.Properties.Resources.eye;
+            this.pictureBox5.Location = new System.Drawing.Point(456, 304);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(26, 25);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 23;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
@@ -226,9 +241,10 @@
             // 
             this.password_txtbox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.password_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.password_txtbox.Font = new System.Drawing.Font("Stencil", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_txtbox.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password_txtbox.Location = new System.Drawing.Point(208, 304);
             this.password_txtbox.Name = "password_txtbox";
+            this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(274, 28);
             this.password_txtbox.TabIndex = 3;
             // 
@@ -247,11 +263,12 @@
             // 
             this.user_textBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.user_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.user_textBox.Font = new System.Drawing.Font("Stencil", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_textBox.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_textBox.Location = new System.Drawing.Point(208, 243);
             this.user_textBox.Name = "user_textBox";
             this.user_textBox.Size = new System.Drawing.Size(274, 28);
             this.user_textBox.TabIndex = 0;
+            this.user_textBox.TextChanged += new System.EventHandler(this.user_textBox_TextChanged);
             // 
             // Login_page
             // 
@@ -262,6 +279,7 @@
             this.Name = "Login_page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_page_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -270,6 +288,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -294,6 +313,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 
